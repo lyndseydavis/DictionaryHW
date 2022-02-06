@@ -23,15 +23,7 @@ course_time = {
     "NT110": "11:00 AM",
     "CM241": "1:00 PM",
 }
-# check dictionaries
-"""
-print(course_room)
-print(type(course_room))
-print(course_instructor)
-print(type(course_instructor))
-print(course_time)
-print(type(course_time))
-"""
+
 # create input variable for course numnber
 course_number = input("Enter Course Number: ")
 
@@ -101,23 +93,24 @@ codes = {
     "z": "M",
 }
 # double check length to ensure included all letters
-# len(codes)
+len(codes)
 
 # open txt file
-info_security = open("info_security.txt", "r")
+in_file = open("info_security.txt", "r")
 # check file
-##print(infosec.readline())
-infosec = info_security.read()
-info_security.close()
+##print(in_file.readline())
+infosec = in_file.read()
+infosec = str(infosec)
+in_file.close()
 # create encrypted file
-encrypt = open("encrypt_info_security.txt", "w")
+out_file = open("encrypt_info_security.txt", "w")
 
-# read txt file and write to new file
-for letter in range(len(infosec)):
+# read txt file and write encryption to new file
+for letter in infosec:
     if letter in codes:
-        encrypt.write(codes[letter])
+        eletter = codes[letter]
+        out_file.write(eletter)
     else:
-        print(letter)
+        out_file.write(letter)
 
-
-encrypt.close()
+out_file.close()
